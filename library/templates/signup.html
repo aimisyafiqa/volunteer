@@ -1,0 +1,341 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+        /* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Reset and Global Styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 4rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    color: var(--text-color);
+}
+
+/* CSS Variables */
+:root {
+    --main-color: #d52626;
+    --second-color: #f7f7f7;
+    --text-color: #1b1b1b;
+    --bg-color: #b7b7b7;
+    --box-shadow: 2px 2px 10px 4px rgb(14 55 54 / 15%);
+}
+
+/* Section Padding */
+section {
+    padding: 50px 100px;
+}
+/* Image Styling */
+img {
+    width: 70%;
+}
+/* Navbar Styles */
+header { 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 100px;
+    transition: 0.5s linear;
+    background: var(--text-color);
+}
+.logo img {
+    width: 70px;
+}
+.navbar {
+    display: flex;
+}
+.navbar a {
+    padding: 8px 17px;
+    color: var(--bg-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.navbar a:hover {
+    background: var(--main-color);
+    border-radius: 0.2rem;
+    transition: 0.2s all linear;
+}
+#menu-icon {
+    color: var(--bg-color);
+    font-size: 24px;
+    z-index: 100001;
+    cursor: pointer;
+    display: none;
+}
+/* Center Container for Sign-Up Form */
+.center-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+    padding-top: 20px;
+    margin-top: 90px;
+}
+/* Sign-Up Box */
+.signup-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+}
+
+.signup-box h2 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 24px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-box label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: var(--main-color);
+    outline: none;
+    border: 1px solid var(--main-color);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #555;
+}
+
+.checkbox-group a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+/* Register Button */
+.btn-register {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #8a6f4d;
+}
+
+/* Error Border Fix */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    border: 1px solid #ccc;
+}
+        /* Footer */
+.footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    gap: 1.5rem;
+    padding: 30px 100px;
+    background-color: var(--text-color);
+    color: var(--second-color);
+}
+
+.footer-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--main-color);
+}
+
+.footer-box ul li a {
+    font-size: 0.9rem;
+    color: var(--second-color);
+    transition: color 0.3s ease;
+}
+
+.footer-box ul li a:hover {
+    color: var(--main-color);
+}
+.social  a {
+        color: var(--second-color);
+    }
+    .social a:hover {
+        color: var(--main-color);
+    }
+    .contact  span i {
+        color: var(--second-color);
+    }
+    .contact span i:hover {
+        color: var(--main-color);
+    }
+
+.banner {
+    padding: 20px;
+    text-align: center;
+    background: var(--text-color);
+    color: rgb(149, 146, 146);
+    margin-top: 20px;
+}
+.banner h4 {
+    color: var(--main-color);
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">
+        <img src="{% static 'image/kasukma24.jpg' %}" alt="Volunteer image"><!-- img logo -->
+        </a>
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <!-- Links -->
+        <ul class="navbar">
+            <li><a href="{% url 'index' %}">HOME</a></li>
+            <li><a href="{% url 'index' %}#about">ABOUT US</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+    </header>
+    <div class="center-container">
+        <div class="signup-box">
+            <h2>Register for KASUKMA Volunteer</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input-box">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-box">
+                    <label for="id">StudentID</label>
+                    <input type="id" id="id" name="id" placeholder="Enter your Student ID" required>
+                </div>
+                <div class="input-box">
+                    <label for="phone">Phone Number</label>
+                    <input type="phone" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+    
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+    
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="psw" placeholder="Enter your password" required>
+                </div>
+    
+                <div class="input-box">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+    
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+                <button type="submit" class="btn-register">Register</button>
+            </form>
+            {{message}}
+        </div>
+    </div>  
+    
+    <!--footer-->
+<section class="footer">
+    <div class="footer-box">
+        <h3>KOLEJ PROFESIONAL MARA INDERA MAHKOTA</h3>
+        <p>Find us on social media.</p>
+        <div class="social">
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-tiktok"></i></a>
+        </div>
+    </div>
+    <div class="footer-box">
+        <h3>Support</h3>
+        <ul>
+            <li><a href="#">KOLEJ PROFESIONAL MARA</a></li>
+            <li><a href="#">Help & Support</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+        </ul>
+    </div>
+    <div class="footer-box">
+        <h3>View Guides</h3>
+        <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Our Branches</a></li>
+            <li><a href="#">Blog Posts</a></li>
+        </ul>
+    </div>
+    <div class="footer-box">
+        <h3>Contact</h3>
+        <div class="contact">
+            <span><i class="bx bxs-map"></i> KPMIM, Jalan Sungai Lembing, 25200 Kuantan, Pahang </span><br>
+            <span><i class="bx bxs-phone"></i>09-5736304 / 6346 </span><br>
+            <span><i class="bx bxs-envelope"></i>webmaster@inderamahkota.kpm.edu.my</span>
+        </div>
+    </div>
+</section>
+<section class="banner">
+    <p>&copy; 2024 KASUKMA Volunteer. All rights reserved.</p>
+    <h4>KARNIVAL SUKAN KOLEJ PROFESIONAL MARA & KOLEJ MARA 2024 (KASUKMA 2024)</h4>
+    <p>"Stomp Like An Elephant, Conquer Like A Champion"</p>
+</section>
+</body>
+</html>

@@ -1,0 +1,293 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KASUKMA VOLUNTEER 2024</title>
+    <!--box icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+        /* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Reset and Global Styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 4rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    color: var(--text-color);
+}
+
+/* CSS Variables */
+:root {
+    --main-color: #d52626;
+    --second-color: #f7f7f7;
+    --text-color: #1b1b1b;
+    --bg-color: #b7b7b7;
+    --box-shadow: 2px 2px 10px 4px rgb(14 55 54 / 15%);
+}
+
+/* Section Padding */
+section {
+    padding: 50px 100px;
+}
+/* Image Styling */
+img {
+    width: 70%;
+}
+/* Navbar Styles */
+header { 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 100px;
+    transition: 0.5s linear;
+    background: var(--text-color);
+}
+.logo img {
+    width: 70px;
+}
+.navbar {
+    display: flex;
+}
+.navbar a {
+    padding: 8px 17px;
+    color: var(--bg-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.navbar a:hover {
+    background: var(--main-color);
+    border-radius: 0.2rem;
+    transition: 0.2s all linear;
+}
+#menu-icon {
+    color: var(--bg-color);
+    font-size: 24px;
+    z-index: 100001;
+    cursor: pointer;
+    display: none;
+}
+         /* Home Section */
+.home {
+    width: 100%;
+    min-height: 100vh;
+    background: #2a2b2f;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+    align-items: center;
+    gap: 1.5rem;
+}
+.home-text h1 {
+    font-size: 3.4rem;
+    color: var(--bg-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.home-text p {
+    font-size: 0.938rem;
+    color: var(--bg-color);
+    margin: 0.5rem 0 1.4rem;
+}.home-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-img img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.btn {
+    padding: 10px 40px;
+    border-radius: 0.3rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #8a6f4d;
+}
+/* About Section */
+.about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+    align-items: center;
+    gap: 1.5rem;
+}
+.about-img img{
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+.about-text h2 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+.about-text p {
+    font-size: 0.938rem;
+    margin: 0.5rem 0 1.1rem;
+}
+        /* Footer */
+.footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    gap: 1.5rem;
+    padding: 30px 100px;
+    background-color: var(--text-color);
+    color: var(--second-color);
+}
+
+.footer-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--main-color);
+}
+
+.footer-box ul li a {
+    font-size: 0.9rem;
+    color: var(--second-color);
+    transition: color 0.3s ease;
+}
+
+.footer-box ul li a:hover {
+    color: var(--main-color);
+}
+.social  a {
+        color: var(--second-color);
+    }
+    .social a:hover {
+        color: var(--main-color);
+    }
+    .contact  span i {
+        color: var(--second-color);
+    }
+    .contact span i:hover {
+        color: var(--main-color);
+    }
+
+.banner {
+    padding: 20px;
+    text-align: center;
+    background: var(--text-color);
+    color: rgb(149, 146, 146);
+    margin-top: 20px;
+}
+.banner h4 {
+            color:var(--main-color);
+        }
+    </style>
+</head>
+<body>
+    <!--Navbar-->
+    <header>
+        <a href="#" class="logo">
+        <img src="{% static 'image/kasukma24.jpg' %}" alt="Volunteer image">
+        <!--img logo-->
+        </a>
+        <i class="bx bx-menu" id="menu-icon"></i> 
+        <!--links pages-->
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+
+        </ul>
+    </header>
+    <!--home-->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Join our Volunteer <br> Get Started Today</h1>
+            <p>Experience the events now!</p>
+            <a href="{% url 'login' %}" class="btn">Volunteer Now</a>
+        </div>
+        <div class="home-img">
+            <img src="{% static 'image/kasukma24.png' %}" alt="mainpage">
+        </div>
+    </section>
+    <!--about-->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="{% static 'image/teamkpmim.jpeg' %}" alt="mainpage">
+
+        </div>
+        <div class="about-text">
+            <h2>KASUKMA 24 INDERA MAHKOTA</h2>
+            <p>KPM (Kolej Profesional MARA) Indera Mahkota is one of the educational institutions under the management of Majlis Amanah Rakyat (MARA), located in Indera Mahkota, Kuantan, Pahang. 
+                KPM focuses on providing diploma-level education and skills training in various professional fields, particularly for Bumiputera students. It aims to prepare graduates 
+                for the workforce through a combination of theoretical and practical learning.</p>
+            <p>KOLEJ PROFESIONAL MARA INDERA MAHKOTA</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+   <!--footer-->
+<section class="footer">
+    <div class="footer-box">
+        <h3>KOLEJ PROFESIONAL MARA INDERA MAHKOTA</h3>
+        <p>Find us on social media.</p>
+        <div class="social">
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-tiktok"></i></a>
+        </div>
+    </div>
+    <div class="footer-box">
+        <h3>Support</h3>
+        <ul>
+            <li><a href="#">KOLEJ PROFESIONAL MARA</a></li>
+            <li><a href="#">Help & Support</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+        </ul>
+    </div>
+    <div class="footer-box">
+        <h3>View Guides</h3>
+        <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Our Branches</a></li>
+            <li><a href="#">Blog Posts</a></li>
+        </ul>
+    </div>
+    <div class="footer-box">
+        <h3>Contact</h3>
+        <div class="contact">
+            <span><i class="bx bxs-map"></i> KPMIM, Jalan Sungai Lembing, 25200 Kuantan, Pahang </span><br>
+            <span><i class="bx bxs-phone"></i>09-5736304 / 6346 </span><br>
+            <span><i class="bx bxs-envelope"></i>webmaster@inderamahkota.kpm.edu.my</span>
+        </div>
+    </div>
+</section>
+<section class="banner">
+    <p>&copy; 2024 KASUKMA Volunteer. All rights reserved.</p>
+    <h4>KARNIVAL SUKAN KOLEJ PROFESIONAL MARA & KOLEJ MARA 2024 (KASUKMA 2024)</h4>
+    <p>"Stomp Like An Elephant, Conquer Like A Champion"</p>
+</section>
+</body>
+</html>
